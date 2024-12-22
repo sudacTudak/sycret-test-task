@@ -1,0 +1,30 @@
+.nav {
+  &__item {
+    max-width: 150px;
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__link {
+    display: block;
+    border-bottom: 2px solid var(--color-divider);
+    font-weight: 700;
+    padding: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.5s ease, border-color 0.5s ease;
+
+    &:hover {
+      border-color: var(--color-primary-hover);
+      color: var(--color-primary-hover);
+    }
+
+    &:active,
+    &.active {
+      border-color: var(--color-primary-active);
+      color: var(--color-primary-active);
+    }
+  }
+}

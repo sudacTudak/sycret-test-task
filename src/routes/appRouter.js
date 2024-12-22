@@ -4,10 +4,11 @@ import { FormPage } from './../pages/FormPage/FormPage';
 import { PaymentPage } from './../pages/PaymentPage/PaymentPage';
 import { NotFoundPage } from './../pages/NotFoundPage/NotFoundPage';
 import { HomePage } from './../pages/HomePage/HomePage';
+import { MainLayout } from '../layout/MainLayout/MainLayout';
 
 export const appRouter = createBrowserRouter([
   {
-    element: <Outlet />,
+    element: <MainLayout />,
     children: [
       {
         path: APP_ROUTES.HOMEPAGE,

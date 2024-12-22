@@ -7,7 +7,7 @@ export const APP_ROUTES = {
 export const NAV_MENU_ROUTES = [
   { label: 'Главная', path: APP_ROUTES.HOMEPAGE, alias: 'homepage' },
   { label: 'Услуги', path: '#', alias: 'services' },
-  { label: 'Галерея', path: '#', alias: 'homepage' },
-  { label: 'Главная', path: '#', alias: 'homepage' },
-  { label: 'Главная', path: '#', alias: 'homepage' }
+  { label: 'Галерея', path: '#', alias: 'gallery' },
+  { label: 'Отзывы', path: '#', alias: 'reviews' },
+  { label: 'О нас', path: '#', alias: 'about-us' }
 ];

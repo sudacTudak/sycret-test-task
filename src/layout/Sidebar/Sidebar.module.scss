@@ -1,0 +1,24 @@
+.sidebar {
+  position: relative;
+  padding: 0 20px 0 10px;
+
+  &__logo {
+    margin-bottom: 12px;
+  }
+
+  &__nav {
+    max-width: 180px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 1px;
+    border-radius: 50%;
+    height: 80%;
+    top: 10%;
+    right: 0px;
+    background-color: var(--color-divider);
+  }
+}
