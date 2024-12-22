@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import { APP_ROUTES } from './index';
 import { FormPage } from './../pages/FormPage/FormPage';
 import { PaymentPage } from './../pages/PaymentPage/PaymentPage';
@@ -23,6 +23,10 @@ export const appRouter = createBrowserRouter([
         element: <PaymentPage />
       }
     ]
+  },
+  {
+    path: APP_ROUTES.MOCK_PATH,
+    element: <Navigate to={'/'} />
   },
   {
     path: '*',
