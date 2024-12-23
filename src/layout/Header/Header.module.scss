@@ -1,3 +1,119 @@
 .header {
+  --burger-menu-transition-time: 0.5s;
+  --burger-menu-transition-type: ease-in-out;
+
   background-color: var(--color-bg-content);
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 30px;
+
+  &__logo {
+    transition: opacity var(--burger-menu-transition-time)
+        var(--burger-menu-transition-type),
+      visibility var(--burger-menu-transition-time)
+        var(--burger-menu-transition-type);
+    &.is-menu-open {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.icon-menu {
+  position: relative;
+  z-index: 101;
+
+  width: 30px;
+  height: 18px;
+  border: none;
+
+  background-color: transparent;
+
+  &::before,
+  &::after {
+    content: '';
+  }
+
+  span,
+  &::before,
+  &::after {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: background-color var(--burger-menu-transition-time)
+        var(--burger-menu-transition-type),
+      transform var(--burger-menu-transition-time)
+        var(--burger-menu-transition-type);
+  }
+
+  span {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    top: 0;
+    transition: top var(--burger-menu-transition-time)
+      var(--burger-menu-transition-type);
+  }
+
+  &::after {
+    bottom: 0;
+    transition: bottom var(--burger-menu-transition-time)
+      var(--burger-menu-transition-type);
+  }
+
+  &.is-active {
+    span,
+    &::before,
+    &::after {
+      background-color: var(--color-primary-active);
+      transition: transform var(--burger-menu-transition-time)
+        var(--burger-menu-transition-type);
+    }
+
+    span {
+      transform: scale(0);
+    }
+
+    &::before {
+      top: 8px;
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      bottom: 8px;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.menu-header {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+  height: 100%;
+
+  overflow-y: auto;
+
+  background-color: var(--color-bg-content);
+
+  transition: right var(--burger-menu-transition-time)
+    var(--burger-menu-transition-type);
+
+  &.is-open {
+    right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    display: flex;
+  }
 }

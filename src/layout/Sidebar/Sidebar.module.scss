@@ -22,3 +22,37 @@
     background-color: var(--color-divider);
   }
 }
+
+@media (max-width: 1370px) {
+  .sidebar {
+    padding: 0;
+    padding-right: 20px;
+    &__nav {
+      max-width: 150px;
+    }
+
+    &::after {
+      height: 90%;
+      top: 5%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    &__nav {
+      max-width: 100%;
+    }
+
+    &__logo {
+      margin-bottom: 32px;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+}
