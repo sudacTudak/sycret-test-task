@@ -1,3 +1,3 @@
 export interface Order {
-  certNumber: string;
+  certNumber?: string;
 }

@@ -11,6 +11,7 @@ export const mapObject = <T, U>(source: U, mapper: Mapper<T, U>): T => {
 
   for (const key in mapper) {
     const mapping = mapper[key];
+
     if (typeof mapping === 'function') {
       result[key] = mapping(source as any);
     } else if (typeof mapping === 'string') {
@@ -29,8 +30,8 @@ export const mapCertDTOToClient = (certDTO: CertificateDTO) => {
     name: 'NAME',
     description: 'DESCRIPTION',
     price: (dto) => parseFloat(dto.PRICE),
-    summa: (dto) => parseFloat(dto.SUMMA),
-    discount: (dto) => parseFloat(dto.DISCOUNT)
+    sum: (dto) => parseFloat(dto.SUMMA),
+    discount: (dto) => (dto.DISCOUNT ? parseFloat(dto.DISCOUNT) : undefined)
   };
 
   return mapObject<Certificate, CertificateDTO>(certDTO, mapper);
@@ -44,8 +45,8 @@ export const mapClientCertToDTO = (clientCert: Certificate) => {
     NAME: 'name',
     DESCRIPTION: 'description',
     PRICE: (cert) => String(cert.price),
-    SUMMA: (cert) => String(cert.summa),
-    DISCOUNT: (cert) => String(cert.discount)
+    SUMMA: (cert) => String(cert.sum),
+    DISCOUNT: (cert) => (cert.discount ? String(cert.discount) : undefined)
   };
 
   return mapObject<CertificateDTO, Certificate>(clientCert, mapper);

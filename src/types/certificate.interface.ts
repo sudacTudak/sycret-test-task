@@ -3,8 +3,9 @@ export interface Certificate {
   tableName: string;
   primaryKey: string;
   name: string;
-  description: string;
+  description?: string;
   price: number;
-  summa: number;
-  discount: number;
+  sum: number;
+  discount?: number;
+  imageUrl?: string;
 }

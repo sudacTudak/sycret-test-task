@@ -5,7 +5,7 @@ interface ServerResponse<DataType> {
 }
 
 export interface OrderDTO {
-  CERTNUMBER: string;
+  CERTNUMBER?: string;
 }
 
 export interface CertificateDTO {
@@ -13,10 +13,11 @@ export interface CertificateDTO {
   TABLENAME: string;
   PRIMARYKEY: string;
   NAME: string;
-  DESCRIPTION: string;
+  DESCRIPTION?: string;
   PRICE: string;
   SUMMA: string;
-  DISCOUNT: string;
+  DISCOUNT?: string;
+  IMAGEURL?: string;
 }
 
 export interface OSGetGoodsResponse extends ServerResponse<CertificateDTO[]> {}
