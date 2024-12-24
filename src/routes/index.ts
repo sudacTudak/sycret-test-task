@@ -1,9 +1,9 @@
-export const APP_ROUTES = {
-  HOMEPAGE: '/',
-  ORDER_FORM_PAGE: '/order-form',
-  PAYMENT_PAGE: '/payment',
-  MOCK_PATH: '/some-mock-path'
-};
+export enum APP_ROUTES {
+  HOMEPAGE = '/',
+  ORDER_FORM_PAGE = '/order-form',
+  PAYMENT_PAGE = '/payment',
+  MOCK_PATH = '/some-mock-path'
+}
 
 export const NAV_MENU_ROUTES = [
   { label: 'Главная', path: APP_ROUTES.HOMEPAGE, alias: 'homepage' },

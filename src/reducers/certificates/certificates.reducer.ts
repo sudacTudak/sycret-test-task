@@ -1,6 +1,10 @@
-import { CERTIFICATE_ACTIONS } from './certificates.actions';
+import { CERTIFICATES_ACTIONS } from './certificates.types';
+import {
+  CertificatesActionTypes,
+  CertificatesState
+} from './certificates.types';
 
-export const INITIAL_CERTIFICATES_STATE = {
+export const INITIAL_CERTIFICATES_STATE: CertificatesState = {
   certificatesData: {
     entities: [],
     status: 'idle',
@@ -9,9 +13,12 @@ export const INITIAL_CERTIFICATES_STATE = {
   choosenCertificate: null
 };
 
-export const certificatesReducer = (state, action) => {
+export const certificatesReducer = (
+  state: CertificatesState,
+  action: CertificatesActionTypes
+) => {
   switch (action.type) {
-    case CERTIFICATE_ACTIONS.SET_CERTIFICATES: {
+    case CERTIFICATES_ACTIONS.SET_CERTIFICATES: {
       const entities = action.payload.certificates;
       return {
         ...state,
@@ -22,14 +29,14 @@ export const certificatesReducer = (state, action) => {
       };
     }
 
-    case CERTIFICATE_ACTIONS.SET_CHOOSEN_CERT: {
-      const choosenCertificate = action.payload.choosenCert;
+    case CERTIFICATES_ACTIONS.SET_CHOOSEN_CERT: {
+      const choosenCertificate = action.payload.cert;
       return {
         ...state,
         choosenCertificate
       };
     }
-    case CERTIFICATE_ACTIONS.SET_STATUS: {
+    case CERTIFICATES_ACTIONS.SET_STATUS: {
       const status = action.payload.status;
       return {
         ...state,
@@ -39,8 +46,8 @@ export const certificatesReducer = (state, action) => {
         }
       };
     }
-    case CERTIFICATE_ACTIONS.SET_ERR_MSG: {
-      const errorMessage = action.payload.errorMessage;
+    case CERTIFICATES_ACTIONS.SET_ERR_MSG: {
+      const errorMessage = action.payload.errMessage;
       return {
         ...state,
         certificatesData: {
@@ -49,7 +56,7 @@ export const certificatesReducer = (state, action) => {
         }
       };
     }
-    case CERTIFICATE_ACTIONS.CLEAR_ERR_MGS: {
+    case CERTIFICATES_ACTIONS.CLEAR_ERR_MGS: {
       return {
         ...state,
         certificatesData: {

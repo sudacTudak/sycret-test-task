@@ -5,13 +5,18 @@ import {
   buildURLWithQuery,
   getDefaultQueryParams
 } from './utils';
+import {
+  OSGetGoodsResponse,
+  OSSaleResponse
+} from '../types/server-responses.interfaces';
 
 export const getGoodList = async (queryParams = {}) => {
   try {
     const defaultParams = getDefaultQueryParams(API_METHOD_NAMES.getGoodList);
     const params = Object.assign(defaultParams, queryParams);
     const url = buildURLWithQuery(API_BASE_URL, params);
-    const { data } = await axios.get(url);
+
+    const { data } = await axios.get<OSGetGoodsResponse>(url);
     const { result, data: goodsList } = data;
 
     if (result !== 0) {
@@ -20,7 +25,10 @@ export const getGoodList = async (queryParams = {}) => {
 
     return goodsList;
   } catch (error) {
-    throw new AxiosError(error);
+    if (error instanceof AxiosError) {
+      throw error;
+    }
+    throw new Error('Произошла ошибка');
   }
 };
 
@@ -29,7 +37,8 @@ export const sendOrder = async (queryParams = {}) => {
     const defaultParams = getDefaultQueryParams(API_METHOD_NAMES.sale);
     const params = Object.assign(defaultParams, queryParams);
     const url = buildURLWithQuery(API_BASE_URL, params);
-    const { data } = await axios.get(url);
+
+    const { data } = await axios.get<OSSaleResponse>(url);
     const { result, data: orderedGoods } = data;
 
     if (result !== 0) {
@@ -38,6 +47,9 @@ export const sendOrder = async (queryParams = {}) => {
 
     return orderedGoods;
   } catch (error) {
-    throw new AxiosError(error);
+    if (error instanceof AxiosError) {
+      throw error;
+    }
+    throw new Error('Произошла ошибка');
   }
 };

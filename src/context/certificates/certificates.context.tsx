@@ -1,28 +1,39 @@
-import { createContext, useReducer } from 'react';
+import { createContext, ReactNode, useReducer } from 'react';
 import {
   certificatesReducer,
   INITIAL_CERTIFICATES_STATE
 } from '../../reducers/certificates/certificates.reducer';
 import { certificatesActions } from '../../reducers/certificates/certificates.actions';
 import { getGoodList } from '../../api';
+import { ClientCertificate } from '../../types/certificate.interface';
+import { CertificatesEntitiesStatus } from '../../reducers/certificates/certificates.types';
+import { AxiosError } from 'axios';
+import { ICertificatesContext } from './certificatesContext.types';
 
-export const CertificatesContext = createContext(INITIAL_CERTIFICATES_STATE);
+export const CertificatesContext = createContext<ICertificatesContext | null>(
+  null
+);
 
-export const CertificatesContextProvider = ({ children }) => {
+export const CertificatesContextProvider = ({
+  children
+}: {
+  children: ReactNode;
+}) => {
   const [certificatesState, dispatch] = useReducer(
     certificatesReducer,
     INITIAL_CERTIFICATES_STATE
   );
 
-  const setCertificates = (certificates) =>
+  const setCertificates = (certificates: ClientCertificate[]) =>
     dispatch(certificatesActions.setCertificates(certificates));
 
-  const setChoosenCert = (cert) =>
+  const setChoosenCert = (cert: ClientCertificate) =>
     dispatch(certificatesActions.setChoosenCert(cert));
 
-  const setStatus = (status) => dispatch(certificatesActions.setStatus(status));
+  const setStatus = (status: CertificatesEntitiesStatus) =>
+    dispatch(certificatesActions.setStatus(status));
 
-  const setErrorMessage = (errMessage) =>
+  const setErrorMessage = (errMessage: string) =>
     dispatch(certificatesActions.setErrorMessage(errMessage));
 
   const clearErrorMessage = () =>
@@ -33,11 +44,15 @@ export const CertificatesContextProvider = ({ children }) => {
       clearErrorMessage();
       setStatus('loading');
       const certificates = await getGoodList();
-      setCertificates(certificates);
+      // setCertificates(certificates);
       setStatus('received');
     } catch (err) {
-      setErrorMessage(err.message);
       setStatus('error');
+      if (err instanceof AxiosError) {
+        setErrorMessage(err.response?.data.message);
+        return;
+      }
+      setErrorMessage('Произошла ошибка');
     }
   };
 

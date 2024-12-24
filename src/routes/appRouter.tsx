@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import { APP_ROUTES } from './index';
-import { FormPage } from './../pages/FormPage/FormPage';
-import { PaymentPage } from './../pages/PaymentPage/PaymentPage';
-import { NotFoundPage } from './../pages/NotFoundPage/NotFoundPage';
-import { HomePage } from './../pages/HomePage/HomePage';
+import { FormPage } from '../pages/FormPage/FormPage';
+import { PaymentPage } from '../pages/PaymentPage/PaymentPage';
+import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
+import { HomePage } from '../pages/HomePage/HomePage';
 import { MainLayout } from '../layout/MainLayout/MainLayout';
 
 export const appRouter = createBrowserRouter([

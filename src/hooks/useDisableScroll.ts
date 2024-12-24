@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 
-export const useDisableScroll = () => {
+type UseDisableScrollReturnType = [() => void, () => void];
+
+export const useDisableScroll = (): UseDisableScrollReturnType => {
   const scroll = useRef(false);
 
   const disableScroll = () => {

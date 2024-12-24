@@ -4,8 +4,9 @@ import cn from 'classnames';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { Logo } from '../Logo/Logo';
 import { useDisableScroll } from '../../hooks/useDisableScroll';
+import { HeaderProps } from './Header.props';
 
-export const Header = ({ className }) => {
+export const Header = ({ className }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [disableScroll, enableScroll] = useDisableScroll();
 

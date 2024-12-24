@@ -3,12 +3,12 @@ export const API_BASE_URL =
 const API_KEY =
   process.env.REACT_APP_API_KEY ?? '011ba11bdcad4fa396660c2ec447ef14';
 
-export const API_METHOD_NAMES = {
-  getGoodList: 'OSGetGoodList',
-  sale: 'OSSale'
-};
+export enum API_METHOD_NAMES {
+  getGoodList = 'OSGetGoodList',
+  sale = 'OSSale'
+}
 
-export const getDefaultQueryParams = (methodName) => ({
+export const getDefaultQueryParams = (methodName: string) => ({
   MethodName: methodName,
   ApiKey: API_KEY
 });
@@ -22,7 +22,10 @@ export const getDefaultQueryParams = (methodName) => ({
   * @returns {string} Полный URL с query-параметрами
 
 */
-export const buildURLWithQuery = (url, params) => {
+export const buildURLWithQuery = (
+  url: string,
+  params: Record<string, string>
+): string => {
   let urlWithParams = url + '?';
   const paramsEntries = Object.entries(params);
 
