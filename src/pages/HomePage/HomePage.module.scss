@@ -1,2 +1,80 @@
 .home {
+  height: 100%;
+  &__container {
+    position: relative;
+    display: flex;
+    height: 100%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      width: 1px;
+      background-color: var(--color-divider);
+      border-radius: 50%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    max-width: 200px;
+  }
+
+  &__column {
+    flex: 1 1 50%;
+  }
+
+  &__preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__description {
+    max-width: 400px;
+  }
+}
+
+.certificates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__sum {
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    &__container {
+      display: block;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &__preview {
+      padding: 60px 0 80px;
+      align-items: center;
+    }
+
+    &__description {
+      text-align: center;
+    }
+  }
 }
