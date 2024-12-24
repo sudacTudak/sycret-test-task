@@ -5,10 +5,11 @@ import {
 } from '../../reducers/certificates/certificates.reducer';
 import { certificatesActions } from '../../reducers/certificates/certificates.actions';
 import { getGoodList } from '../../api';
-import { ClientCertificate } from '../../types/certificate.interface';
+import { Certificate } from '../../types/certificate.interface';
 import { CertificatesEntitiesStatus } from '../../reducers/certificates/certificates.types';
 import { AxiosError } from 'axios';
 import { ICertificatesContext } from './certificatesContext.types';
+import { mapCertDTOToClient } from '../../utils/mappers.utils';
 
 export const CertificatesContext = createContext<ICertificatesContext | null>(
   null
@@ -24,10 +25,7 @@ export const CertificatesContextProvider = ({
     INITIAL_CERTIFICATES_STATE
   );
 
-  const setCertificates = (certificates: ClientCertificate[]) =>
-    dispatch(certificatesActions.setCertificates(certificates));
-
-  const setChoosenCert = (cert: ClientCertificate) =>
+  const setChoosenCert = (cert: Certificate) =>
     dispatch(certificatesActions.setChoosenCert(cert));
 
   const setStatus = (status: CertificatesEntitiesStatus) =>
@@ -40,18 +38,23 @@ export const CertificatesContextProvider = ({
     dispatch(certificatesActions.clearErrorMessage());
 
   const loadCertificates = async () => {
+    clearErrorMessage();
+    setStatus('loading');
+
     try {
-      clearErrorMessage();
-      setStatus('loading');
-      const certificates = await getGoodList();
-      // setCertificates(certificates);
+      const certificatesDTO = await getGoodList();
+      const certificates = certificatesDTO.map(mapCertDTOToClient);
+
+      dispatch(certificatesActions.setCertificates(certificates));
       setStatus('received');
     } catch (err) {
       setStatus('error');
+
       if (err instanceof AxiosError) {
         setErrorMessage(err.response?.data.message);
         return;
       }
+
       setErrorMessage('Произошла ошибка');
     }
   };

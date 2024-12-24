@@ -1,10 +1,10 @@
 import { CertificatesState } from '../../reducers/certificates/certificates.types';
-import { ClientCertificate } from '../../types/certificate.interface';
+import { Certificate } from '../../types/certificate.interface';
 
 export interface ICertificatesContext {
   certificatesState: CertificatesState;
   loadCertificates: () => Promise<void>;
-  setChoosenCert: (cert: ClientCertificate) => void;
+  setChoosenCert: (cert: Certificate) => void;
   setErrorMessage: (errorMessage: string) => void;
   clearErrorMessage: () => void;
 }

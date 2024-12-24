@@ -1,4 +1,4 @@
-import { ClientCertificate } from '../../types/certificate.interface';
+import { Certificate } from '../../types/certificate.interface';
 
 export type CertificatesEntitiesStatus =
   | 'idle'
@@ -8,11 +8,11 @@ export type CertificatesEntitiesStatus =
 
 export interface CertificatesState {
   certificatesData: {
-    entities: ClientCertificate[];
+    entities: Certificate[];
     status: CertificatesEntitiesStatus;
     errorMessage: string | null;
   };
-  choosenCertificate: ClientCertificate | null;
+  choosenCertificate: Certificate | null;
 }
 
 export enum CERTIFICATES_ACTIONS {
@@ -26,14 +26,14 @@ export enum CERTIFICATES_ACTIONS {
 export type SetSertificatesActionType = {
   type: CERTIFICATES_ACTIONS.SET_CERTIFICATES;
   payload: {
-    certificates: ClientCertificate[];
+    certificates: Certificate[];
   };
 };
 
 export type SetChoosenCertActionType = {
   type: CERTIFICATES_ACTIONS.SET_CHOOSEN_CERT;
   payload: {
-    cert: ClientCertificate;
+    cert: Certificate;
   };
 };
 

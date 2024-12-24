@@ -1,4 +1,4 @@
-import { ClientCertificate } from '../../types/certificate.interface';
+import { Certificate } from '../../types/certificate.interface';
 import {
   CERTIFICATES_ACTIONS,
   CertificatesEntitiesStatus,
@@ -11,14 +11,14 @@ import {
 
 export const certificatesActions = {
   setCertificates: (
-    certificates: ClientCertificate[]
+    certificates: Certificate[]
   ): SetSertificatesActionType => ({
     type: CERTIFICATES_ACTIONS.SET_CERTIFICATES,
     payload: {
       certificates
     }
   }),
-  setChoosenCert: (cert: ClientCertificate): SetChoosenCertActionType => ({
+  setChoosenCert: (cert: Certificate): SetChoosenCertActionType => ({
     type: CERTIFICATES_ACTIONS.SET_CHOOSEN_CERT,
     payload: {
       cert

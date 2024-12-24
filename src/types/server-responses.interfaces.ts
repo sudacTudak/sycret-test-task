@@ -4,7 +4,7 @@ interface ServerResponse<DataType> {
   resultDescription: string;
 }
 
-export interface OrderedCertificateDTO {
+export interface OrderDTO {
   CERTNUMBER: string;
 }
 
@@ -21,5 +21,4 @@ export interface CertificateDTO {
 
 export interface OSGetGoodsResponse extends ServerResponse<CertificateDTO[]> {}
 
-export interface OSSaleResponse
-  extends ServerResponse<OrderedCertificateDTO[]> {}
+export interface OSSaleResponse extends ServerResponse<OrderDTO[]> {}
