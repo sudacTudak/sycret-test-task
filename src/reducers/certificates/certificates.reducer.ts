@@ -10,7 +10,7 @@ export const INITIAL_CERTIFICATES_STATE: CertificatesState = {
     status: 'idle',
     errorMessage: null
   },
-  choosenCertificate: null
+  chosenCertificate: null
 };
 
 export const certificatesReducer = (
@@ -28,12 +28,14 @@ export const certificatesReducer = (
         }
       };
     }
-
     case CERTIFICATES_ACTIONS.SET_CHOOSEN_CERT: {
-      const choosenCertificate = action.payload.cert;
+      const chosenCertId = action.payload.certId;
+      const chosenCertificate = state.certificatesData.entities.find(
+        (cert) => cert.id === chosenCertId
+      );
       return {
         ...state,
-        choosenCertificate
+        chosenCertificate: chosenCertificate ?? null
       };
     }
     case CERTIFICATES_ACTIONS.SET_STATUS: {

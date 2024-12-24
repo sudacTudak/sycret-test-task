@@ -18,10 +18,10 @@ export const certificatesActions = {
       certificates
     }
   }),
-  setChoosenCert: (cert: Certificate): SetChoosenCertActionType => ({
+  setChoosenCert: (certId: number): SetChoosenCertActionType => ({
     type: CERTIFICATES_ACTIONS.SET_CHOOSEN_CERT,
     payload: {
-      cert
+      certId
     }
   }),
   setStatus: (status: CertificatesEntitiesStatus): SetStatusActionType => ({

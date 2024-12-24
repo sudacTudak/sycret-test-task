@@ -11,9 +11,9 @@ import { AxiosError } from 'axios';
 import { ICertificatesContext } from './certificatesContext.types';
 import { mapCertDTOToClient } from '../../utils/mappers.utils';
 
-export const CertificatesContext = createContext<ICertificatesContext | null>(
-  null
-);
+export const CertificatesContext = createContext<ICertificatesContext>({
+  certificatesState: INITIAL_CERTIFICATES_STATE
+});
 
 export const CertificatesContextProvider = ({
   children
@@ -25,8 +25,8 @@ export const CertificatesContextProvider = ({
     INITIAL_CERTIFICATES_STATE
   );
 
-  const setChoosenCert = (cert: Certificate) =>
-    dispatch(certificatesActions.setChoosenCert(cert));
+  const setChosenCert = (certId: number) =>
+    dispatch(certificatesActions.setChoosenCert(certId));
 
   const setStatus = (status: CertificatesEntitiesStatus) =>
     dispatch(certificatesActions.setStatus(status));
@@ -64,7 +64,7 @@ export const CertificatesContextProvider = ({
       value={{
         certificatesState,
         loadCertificates,
-        setChoosenCert,
+        setChosenCert,
         setErrorMessage,
         clearErrorMessage
       }}

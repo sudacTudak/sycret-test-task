@@ -12,7 +12,7 @@ export interface CertificatesState {
     status: CertificatesEntitiesStatus;
     errorMessage: string | null;
   };
-  choosenCertificate: Certificate | null;
+  chosenCertificate: Certificate | null;
 }
 
 export enum CERTIFICATES_ACTIONS {
@@ -33,7 +33,7 @@ export type SetSertificatesActionType = {
 export type SetChoosenCertActionType = {
   type: CERTIFICATES_ACTIONS.SET_CHOOSEN_CERT;
   payload: {
-    cert: Certificate;
+    certId: number;
   };
 };
 
