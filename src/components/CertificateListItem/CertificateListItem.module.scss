@@ -1,0 +1,49 @@
+.certificate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 15px 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--color-text);
+
+  &__name {
+    margin-bottom: 20px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  &__discount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-size: 12px;
+  }
+}
+
+.cost {
+  display: flex;
+
+  &__sum,
+  &__divider {
+    font-size: 16px;
+  }
+
+  &__sum {
+    color: var(--color-primary);
+  }
+
+  &__price {
+    font-size: 12px;
+  }
+}

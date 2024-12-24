@@ -1,0 +1,50 @@
+.button {
+  --btn-transition-time: 0.5s;
+  --btn-transition-type: ease-in-out;
+
+  min-width: 150px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  font-family: inherit;
+  font-size: 16px;
+
+  transition: background-color var(--btn-transition-time)
+      var(--btn-transition-type),
+    border-color var(--btn-transition-time) var(--btn-transition-type),
+    color var(--btn-transition-time) var(--btn-transition-type);
+
+  &_contained {
+    background-color: var(--color-primary);
+    color: var(--color-text-btn-contained);
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary-hover);
+    }
+
+    &:active {
+      background-color: var(--color-primary-active);
+    }
+  }
+
+  &_outlined {
+    background-color: var(--color-bg-btn-outlined);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-bg-btn-outlined-hover);
+      border-color: var(--color-primary-hover);
+      color: var(--color-primary-hover);
+    }
+
+    &:active {
+      background-color: var(--color-bg-btn-outlined-active);
+      border-color: var(--color-primary-active);
+      color: var(--color-primary-active);
+    }
+  }
+}

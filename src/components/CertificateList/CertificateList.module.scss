@@ -1,0 +1,45 @@
+.certificate-list {
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #fafafa;
+  border: 2px solid var(--color-divider);
+  border-radius: 4px;
+  max-width: 300px;
+
+  &__item {
+    position: relative;
+    width: 100%;
+
+    &:not(:last-child) {
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        height: 2px;
+        width: 80%;
+        border-radius: 1px;
+        background-color: var(--color-divider);
+      }
+    }
+  }
+}
+
+.item {
+  &__btn {
+    width: 100%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+      background-color: var(--color-bg-btn-outlined-hover);
+    }
+  }
+}
+
+.chosen {
+  &.item__btn {
+    background-color: var(--color-bg-btn-outlined-active);
+  }
+}
