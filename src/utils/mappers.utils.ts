@@ -1,5 +1,7 @@
 import { Certificate } from '../types/certificate.interface';
 import { Order } from '../types/order.interface';
+import { SaleData } from '../types/sale-data.interface';
+import { SaleParamsDTO } from '../types/sale-params.dto';
 import { CertificateDTO, OrderDTO } from '../types/server-responses.interfaces';
 
 type Mapper<T, U> = {
@@ -66,4 +68,22 @@ export const mapOrderedCertToDTO = (orderedCert: Order) => {
   };
 
   return mapObject<OrderDTO, Order>(orderedCert, mapper);
+};
+
+export const mapSaleDataToParamsDTO = (saleData: SaleData) => {
+  const mapper: Mapper<SaleParamsDTO, SaleData> = {
+    id: (data) => String(data.id),
+    TableName: 'tableName',
+    PrimaryKey: 'primaryKey',
+    Price: (data) => String(data.price),
+    Summa: (data) => String(data.sum),
+    ClientName: 'clientName',
+    Phone: 'phone',
+    MsgText: (data) => (data.message ? data.message : undefined),
+    Email: 'email',
+    PaymentTypeId: (data) => String(data.paymentTypeId),
+    UseDelivery: (data) => String(data.useDelivery)
+  };
+
+  return mapObject<SaleParamsDTO, SaleData>(saleData, mapper);
 };
