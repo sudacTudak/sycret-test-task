@@ -1,2 +1,61 @@
 .form-page {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__cert-name {
+    text-align: center;
+  }
+
+  &__error {
+    font-weight: 500;
+    color: var(--color-error);
+    text-align: center;
+  }
+
+  &__form {
+    width: 400px;
+  }
+
+  &__rules {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    color: var(--color-primary);
+
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+
+    &:active,
+    &:focus {
+      color: var(--color-primary-active);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-page {
+    &__form {
+      width: 300px;
+    }
+  }
 }
