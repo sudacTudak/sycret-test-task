@@ -4,9 +4,7 @@ import { CertificateListItemProps } from './CertificateListItem.props';
 import { Heading } from '../Heading/Heading';
 
 export const CertificateListItem = ({
-  id,
   name,
-  description,
   price,
   sum,
   discount,

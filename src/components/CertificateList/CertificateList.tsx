@@ -24,7 +24,7 @@ export const CertificateList = ({
         return (
           <li
             className={cn(styles['certificate-list__item'], styles['item'], {
-              [styles['choosen']]: chosenCertId && chosenCertId === certData.id
+              [styles['chosen']]: chosenCertId && chosenCertId === certData.id
             })}
             key={certData.id}
           >
