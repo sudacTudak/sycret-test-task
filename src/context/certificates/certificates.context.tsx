@@ -51,7 +51,7 @@ export const CertificatesContextProvider = ({
       setStatus('error');
 
       if (err instanceof AxiosError) {
-        setErrorMessage(err.response?.data.message);
+        setErrorMessage(err.message);
         return;
       }
 
