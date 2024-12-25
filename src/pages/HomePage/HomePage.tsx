@@ -7,6 +7,7 @@ import cn from 'classnames';
 import { Button } from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../routes';
+import Loader from '../../components/Loader/Loader';
 
 export const HomePage = () => {
   const navigate = useNavigate();
@@ -53,11 +54,20 @@ export const HomePage = () => {
           )}
         >
           <Heading level="h2">Выберите сертификат</Heading>
-          <CertificateList
-            certificates={certificatesData.entities}
-            chosenCertId={chosenCertificate?.id}
-            chooseCert={setChosenCert}
-          />
+          {certificatesData.status === 'loading' && <Loader />}
+          {certificatesData.status === 'error' &&
+            certificatesData.errorMessage && (
+              <div className={styles['certificates__error']}>
+                {certificatesData.errorMessage}
+              </div>
+            )}
+          {certificatesData.status === 'received' && (
+            <CertificateList
+              certificates={certificatesData.entities}
+              chosenCertId={chosenCertificate?.id}
+              chooseCert={setChosenCert}
+            />
+          )}
           <div className={styles['certificates__actions']}>
             <div className={styles['certificates__sum']}>
               {chosenCertificate?.sum ?? 0}&nbsp;₽

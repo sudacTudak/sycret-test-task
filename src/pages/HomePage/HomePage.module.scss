@@ -45,6 +45,12 @@
   align-items: center;
   gap: 30px;
 
+  &__error {
+    text-align: center;
+    color: var(--color-error);
+    font-weight: 500;
+  }
+
   &__actions {
     display: flex;
     align-items: center;
