@@ -1,12 +1,12 @@
 # Sycret test task
 
-Веб сервис для онлайн продажи подарочных сертификатов на React
+Веб сервис для онлайн продажи подарочных сертификатов на ReactJS + TypeScript
 
 ## Используемые инструменты:
 
-- JavaScript;
+- TypeScript;
 - React;
 - React-router-dom;
 - axios;
-- React-select;
+- React-hook-form
 - SCSS.
