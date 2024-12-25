@@ -1,0 +1,46 @@
+.field {
+  --border-color: var(--color-border-input);
+  --label-color: var(--color-text);
+
+  color: var(--label-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 3px;
+
+  &__label {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 5px;
+  }
+
+  &__star {
+    color: var(--color-error);
+  }
+
+  input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--color-bg-input);
+    &:hover,
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary-hover);
+    }
+  }
+
+  &__error-msg {
+    display: block;
+    padding-left: 5px;
+    color: var(--color-error);
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+
+.field_error {
+  --border-color: var(--color-error);
+  --label-color: var(--color-error);
+}

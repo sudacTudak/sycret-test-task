@@ -1,6 +1,6 @@
 import { TextareaHTMLAttributes } from 'react';
 
-export interface TextAreaProps
+export interface TextAreaFieldProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: string;
   label?: string;
