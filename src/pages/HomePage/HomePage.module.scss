@@ -75,12 +75,20 @@
     }
 
     &__preview {
-      padding: 60px 0 80px;
+      padding: 40px 0 80px;
       align-items: center;
     }
 
     &__description {
       text-align: center;
+    }
+
+    &__title {
+      max-width: none;
+    }
+
+    &__description {
+      max-width: none;
     }
   }
 }

@@ -57,3 +57,11 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .button {
+    padding: 6px 12px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+}

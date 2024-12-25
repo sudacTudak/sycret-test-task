@@ -18,8 +18,9 @@
 
   &__wrapper {
     max-width: 1400px;
-    max-height: 600px;
+    max-height: 700px;
     height: 100%;
+    overflow-y: auto;
     display: grid;
     grid-template: 1fr / 200px minmax(320px, 1140px);
     grid-template-areas: 'sidebar main';
