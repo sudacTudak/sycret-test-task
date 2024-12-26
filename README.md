@@ -1,4 +1,5 @@
 # Sycret test task
+[Netlify](https://sudac-tudak-sycret-test-task.netlify.app)
 
 Веб сервис для онлайн продажи подарочных сертификатов на ReactJS + TypeScript
 
